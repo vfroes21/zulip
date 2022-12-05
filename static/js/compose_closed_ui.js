@@ -33,7 +33,7 @@ export function get_recipient_label(message) {
                 const user_ids = people.user_ids_string_to_ids_array(narrow_state.pm_ids_string());
                 const user_ids_dicts = user_ids.map((user_id) => ({id: user_id}));
                 message = {
-                    display_reply_to: message_store.get_pm_full_names({
+                    topic: message_store.get_pm_full_names({
                         type: "private",
                         display_recipient: user_ids_dicts,
                     }),
@@ -47,10 +47,11 @@ export function get_recipient_label(message) {
     if (message) {
         if (message.stream && message.topic) {
             return "#" + message.stream + " > " + message.topic;
-        } else if (message.display_reply_to) {
-            return message.display_reply_to;
+        } else if (message.topic) {
+            return message.topic;
         }
     }
+
     return "";
 }
 

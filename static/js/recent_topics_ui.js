@@ -206,14 +206,16 @@ function set_table_focus(row, col, using_keyboard) {
     // there's a more readable way to write this code.
     let message;
     if (type === "private") {
+        console.log('recents');
         message = {
-            display_reply_to: $topic_row.find(".recent_topic_name a").text(),
+            topic: $topic_row.find(".recent_topic_name a").text(),
         };
     } else {
         message = {
             stream: $topic_row.find(".recent_topic_stream a").text(),
             topic: $topic_row.find(".recent_topic_name a").text(),
         };
+        console.log('passed streamtopic');
     }
     compose_closed_ui.update_reply_recipient_label(message);
     return true;
