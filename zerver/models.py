@@ -298,6 +298,9 @@ class Realm(models.Model):  # type: ignore[django-manager-missing] # django-stub
         default=2**31 - 1,
     )
 
+    # Whether admin has turned on all notifications for all members in a given stream.
+    notifications_for_all_stream_members = models.BooleanField(default=False)
+
     # Allow users to access web-public streams without login. This
     # setting also controls API access of web-public streams.
     enable_spectator_access = models.BooleanField(default=False)
@@ -718,6 +721,7 @@ class Realm(models.Model):  # type: ignore[django-manager-missing] # django-stub
         message_content_delete_limit_seconds=(int, type(None)),
         message_retention_days=(int, type(None)),
         move_messages_between_streams_policy=int,
+        notifications_for_all_stream_members=bool,
         name=str,
         name_changes_disabled=bool,
         private_message_policy=int,

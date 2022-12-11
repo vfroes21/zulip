@@ -22,6 +22,7 @@ import * as unread_ui from "./unread_ui";
 // doing so is unnecessary with the current code.  Ideally, we'd do a
 // refactor to address that, however.
 function update_stream_setting(sub, value, setting) {
+    console.log('passed on update_stream_setting at stream_event.js');
     const $setting_checkbox = $(`#${CSS.escape(setting)}_${CSS.escape(sub.stream_id)}`);
     $setting_checkbox.prop("checked", value);
     sub[setting] = value;

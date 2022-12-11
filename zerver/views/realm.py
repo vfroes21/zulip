@@ -80,6 +80,7 @@ def update_realm(
     edit_topic_policy: Optional[int] = REQ(
         json_validator=check_int_in(Realm.COMMON_MESSAGE_POLICY_TYPES), default=None
     ),
+    notifications_for_all_stream_members: Optional[bool] = REQ(json_validator=check_bool, default=None),
     mandatory_topics: Optional[bool] = REQ(json_validator=check_bool, default=None),
     message_content_edit_limit_seconds_raw: Optional[Union[int, str]] = REQ(
         "message_content_edit_limit_seconds", json_validator=check_string_or_int, default=None

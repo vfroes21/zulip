@@ -25,6 +25,7 @@ const admin_settings_label = {
     realm_allow_edit_history: $t({defaultMessage: "Enable message edit history"}),
     realm_mandatory_topics: $t({defaultMessage: "Require topics in stream messages"}),
     realm_notifications_stream: $t({defaultMessage: "New stream announcements"}),
+    realm_notificate_all_stream_members: $t({defaultMessage: "Turn on all notifications for stream members"}),
     realm_signup_notifications_stream: $t({defaultMessage: "New user announcements"}),
     realm_inline_image_preview: $t({defaultMessage: "Show previews of uploaded and linked images"}),
     realm_inline_url_embed_preview: $t({defaultMessage: "Show previews of linked websites"}),
@@ -138,6 +139,7 @@ export function build_page() {
         realm_night_logo_source: page_params.realm_night_logo_source,
         realm_night_logo_url: page_params.realm_night_logo_url,
         realm_mandatory_topics: page_params.realm_mandatory_topics,
+        realm_notifcate_all_stream_members: page_params.realm_notificate_all_stream_members,
         realm_send_welcome_emails: page_params.realm_send_welcome_emails,
         realm_message_content_allowed_in_email_notifications:
             page_params.realm_message_content_allowed_in_email_notifications,

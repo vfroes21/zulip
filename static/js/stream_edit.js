@@ -278,7 +278,6 @@ export function stream_setting_changed(e, from_notification_settings) {
     if (e.target.name === "is_muted") {
         return;
     }
-
     const sub = get_sub_for_target(e.target);
     const status_element = from_notification_settings
         ? $(e.target).closest(".subsection-parent").find(".alert-notification")
@@ -289,9 +288,13 @@ export function stream_setting_changed(e, from_notification_settings) {
         return;
     }
     if (is_notification_setting(setting) && sub[setting] === null) {
+        console.log('entered this if');
         sub[setting] =
             user_settings[settings_config.generalize_stream_notification_setting[setting]];
     }
+    console.log('on stream_setting_changed');
+    console.log(e);
+    console.log(from_notification_settings);
     set_stream_property(sub, setting, e.target.checked, status_element);
 }
 
@@ -305,7 +308,7 @@ export function bulk_set_stream_property(sub_data, status_element) {
             timeout: 10 * 1000,
         });
     }
-
+    console.log('called from bulk');
     settings_ui.do_settings_change(channel.post, url, data, status_element);
     return undefined;
 }
@@ -316,6 +319,7 @@ export function set_stream_property(sub, property, value, status_element) {
 }
 
 export function get_request_data_for_stream_privacy(selected_val) {
+    console.log('passed on get request');
     switch (selected_val) {
         case stream_data.stream_privacy_policy_values.public.code: {
             return {
@@ -614,10 +618,11 @@ export function initialize() {
     $("#manage_streams_container").on("change input", "input, select, textarea", (e) => {
         e.preventDefault();
         e.stopPropagation();
-
+        console.log('detected?');
         const stream_id = get_stream_id(e.target);
         const sub = sub_store.get(stream_id);
         const $subsection = $(e.target).closest(".settings-subsection-parent");
+        console.log($subsection);
         settings_org.save_discard_widget_status_handler($subsection, false, sub);
     });
 
@@ -625,6 +630,7 @@ export function initialize() {
         "click",
         ".subsection-header .subsection-changes-save button",
         (e) => {
+            console.log('detected saved changes button');
             e.preventDefault();
             e.stopPropagation();
             const $save_button = $(e.currentTarget);

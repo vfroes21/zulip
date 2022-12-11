@@ -34,6 +34,11 @@ export function do_settings_change(
         $error_msg_element,
     } = {},
 ) {
+    console.log('PASSED HEREEEEEEE');
+    console.log(request_method);
+    console.log(url);
+    console.log(data);
+    console.log(status_element);
     const $spinner = $(status_element).expectOne();
     $spinner.fadeTo(0, 1);
     loading.make_indicator($spinner, {text: strings.saving});

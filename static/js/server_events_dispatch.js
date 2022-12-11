@@ -214,6 +214,7 @@ export function dispatch_normal_event(event) {
                 name: notifications.redraw_title,
                 name_changes_disabled: settings_account.update_name_change_display,
                 notifications_stream_id: noop,
+                notifications_for_all_stream_members: noop,
                 org_type: noop,
                 private_message_policy: noop,
                 send_welcome_emails: noop,
